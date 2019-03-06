@@ -21,7 +21,7 @@ function mostrar()
 
 
 	while (respuesta == true)
-	{
+	{	
 		contador++;
 
 		animal = prompt("Ingrese un animal");
@@ -63,7 +63,7 @@ function mostrar()
 
 			pesoMinimoBajoCero = peso;
 
-			bandera == true;
+			bandera = true;
 		}
 
 		if (peso > animalMasPesado)
@@ -72,30 +72,31 @@ function mostrar()
 
 			tempaAnimalPesado = temperatura;	
 		}
-
-	 	else if (temperatura < 0)
+		
+		if (peso > pesoMaximoBajoCero)
 		{
-			if(peso > pesoMaximoBajoCero)
-			{
-				pesoMaximoBajoCero = peso;
-			}
-			else
-			{
-				pesoMinimoBajoCero = peso;
-			}
+			pesoMaximoBajoCero = peso;
+		}
+			
+		else 
+		{
+			pesoMinimoBajoCero = peso;
 		}
 		
-		if (temperatura < 0)
+		if (temperatura != 0)
 		{
-			contadorAnima0grados++;
+			if (temperatura < 0)
+			{
+				contadorAnima0grados++;
+			}
+
+			if (temperatura % 2 == 0)
+			{
+				contadorPares++;
+			}
 		}
 
-		if (temperatura % 2 == 0)
-		{
-			contadorPares++;
-		}
-
-		acumuladorPeso = (acumuladorPeso + peso)
+		acumuladorPeso = (acumuladorPeso + peso);
 
 		promedioTotal = (acumuladorPeso / contador);
 
@@ -105,7 +106,7 @@ function mostrar()
 	document.write("<br> La cantidad de temperaturas pares es: " +contadorPares);
 	document.write("<br> La cantidad de animales que viven a menos de 0 grados son: " +contadorAnima0grados);
 	document.write("<br> El promedio del peso de todos los animales es: " +promedioTotal);
-	document.write("<br> El peso máximo de todos los animales cuyas temperaturas sean bajo cero es: " +pesoMaximoBajoCero);
+	document.write("<br> El peso maximo de todos los animales cuyas temperaturas sean bajo cero es: " +pesoMaximoBajoCero);
 	document.write("<br> El peso minimo de todos los animales cuyas temperaturas sean bajo cero es: " +pesoMinimoBajoCero);
 }
 /*
